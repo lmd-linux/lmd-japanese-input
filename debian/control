@@ -1,0 +1,13 @@
+Source: lmd-japanese-input
+Maintainer: lmd Linux <lmd.linux@gmail.com>
+Section: misc
+Priority: important
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13)
+
+Package: lmd-japanese-input
+Architecture: all
+Depends: fcitx5-mozc, fonts-noto-cjk, fonts-noto-cjk-extra, lmd-desktop
+Description: Japanese input for lmd Linux
+ Tools and configuration for Japanese input in lmd Linux
+ The default toggling key combination is Super+Space (Super is sometimes called the Windows key).

@@ -1,0 +1,18 @@
+#! /bin/sh
+set -e
+
+cd /home
+for USER in *; do
+    for FILE in $(find /etc/skel/.config/fcitx5 -type f); do
+        NEW_FILE="/home/${USER}/${FILE#/etc/skel/}"
+        su - ${USER} -c "mkdir -p $(dirname ${NEW_FILE})"
+        if [ -f "${NEW_FILE}" ]; then
+            echo "${NEW_FILE} already exists"
+        else
+            su - ${USER} -c "cp ${FILE} ${NEW_FILE}"
+            echo "Copied ${NEW_FILE}"
+        fi
+    done
+done
+
+#DEBHELPER#
